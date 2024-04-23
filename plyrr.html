@@ -18,6 +18,29 @@
     <link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.4/css/halfmoon.min.css" rel="stylesheet" />
     <title>YoSinTV Plyr Player </title>
 
+
+     <script>
+      var encodeContent = true; // Set to true or false based on your requirement
+    </script>
+    
+
+  <script>
+    // Example function using the encode variable
+    function encodeLinks() {
+      if (encodeContent) {
+        // Logic to encode links
+        console.log('Links encoded.');
+      } else {
+        console.log('Links not encoded.');
+      }
+    }
+
+    // Call the function
+    encodeLinks();
+  </script>
+
+
+    
 <script>
 document.addEventListener("DOMContentLoaded",()=> {
   const e = document.querySelector("video"),
@@ -49,7 +72,6 @@ document.addEventListener("DOMContentLoaded",()=> {
 </script>
 
  <script src='https://cdn.dashjs.org/latest/dash.all.min.js'/> 
- <link href='https://cdn.plyr.io/3.6.2/plyr.css' rel='stylesheet'/> 
  <script crossorigin='anonymous' src='https://cdn.plyr.io/3.5.6/demo.js'/> 
 
              
