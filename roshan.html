@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoSinTV Custom Player </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 1);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            z-index: 9999;
+        }
+
+        .overlay-message {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+ <div class="overlay" id="overlay">
+ <div class="overlay-message">Please Wait, Loading ...</div>
+ </div>
+ <iframe id="myIframe" src="https://www.profitablegatecpm.com/zz7y4bgpf?key=afa62717015a8535ff72fbaf01fde52a"></iframe>
+
+    <script>
+        document.getElementById('overlay').style.display = 'block';
+        setTimeout(function () {
+            document.getElementById('overlay').style.display = 'none';
+            var urlParams = new URLSearchParams(window.location.search);
+            var newurl = urlParams.get('newurl');
+            if (newurl) {
+                document.getElementById('myIframe').src = newurl;
+            }
+        }, 5000);
+
+        setTimeout(function () {
+            document.getElementById('overlay').style.display = 'none';
+        }, 25000); // Hide the overlay after 5 seconds
+    </script>
+</body>
+
+</html>
