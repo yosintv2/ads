@@ -99,4 +99,36 @@ border: 1px solid #fff;
           font-size: 20px;
           z-index: 9999;
         }
-  
+
+
+.notification {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure it stays on top */
+            text-align: center;
+        }
+
+        .notification span {
+            flex: 1;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 10px;
+            margin: 0;
+            position: absolute;
+            right: 30px; /* Move the close button further to the right */
+        }
