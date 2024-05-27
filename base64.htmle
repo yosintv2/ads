@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL to Base64 Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>URL to Base64 Converter</h1>
+        <input type="text" id="urlInput" placeholder="Enter URL" />
+        <button onclick="convertToBase64()">Convert to Base64</button>
+        <textarea id="base64Output" placeholder="Base64 output will appear here" rows="5" readonly></textarea>
+    </div>
+    <script>
+        function convertToBase64() {
+            const url = document.getElementById('urlInput').value;
+            if (url) {
+                const base64 = btoa(url);
+                document.getElementById('base64Output').value = base64;
+            } else {
+                alert('Please enter a URL.');
+            }
+        }
+    </script>
+</body>
+</html>
