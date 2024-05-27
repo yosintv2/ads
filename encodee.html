@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
+      <script>
+        function extractHostname(url) {
+            var hostname;
+            if (url.indexOf("://") > -1) {
+                hostname = url.split("/")[2];
+            } else {
+                hostname = url.split("/")[0];
+            }
+            hostname = hostname.split(":")[0];
+            hostname = hostname.split("?")[0];
+            return hostname;
+        }
+
+        var referrer = document.referrer;
+        var referrerHostname = extractHostname(referrer);
+
+        var allowedDomain = "www.yosin-tv.net";
+
+        if (referrerHostname !== allowedDomain) {
+            window.location.href = "https://www.google.com";
+        }
+    </script>
+  
 <head>
-
-  <script>
-function isInArray(value, array) {
-  return array.indexOf(value) > -1;
-};
-
-function extractHostname(url) {
-  var hostname;
-  if (url.indexOf("://") > -1) {
-    hostname = url.split("/")[2];
-  } else {
-    hostname = url.split("/")[0];
-  };
-  hostname = hostname.split(":")[0];
-  hostname = hostname.split("?")[0];
-  return hostname;
-};
-
-var hostname = extractHostname(document.referrer);
-var blackdomains = "google.com";
-var blacklist = blackdomains.split("www.wicketgoal.com, 26.reducemyweight.net"); 
-
-var whitedomains = " 26.reducemyweight.net ";
-var whitelist = whitedomains.split(" 26.reducemyweight.net ");
-
-if (isInArray(hostname, blacklist)!document.referrer) {
-  document.location.href = " https://www.yosin-tv.net";
-}
-</script>
-
-
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='https://www.yosin-tv.net/favicon.ico' rel='icon' type='image/x-icon'/>
