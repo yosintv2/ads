@@ -32,7 +32,7 @@
         var referrerHostname = extractHostname(referrer);
         var referrerPathname = extractPathname(referrer);
 
-        var allowedHostnames = ["www.yosin-tv.net", "yosintv2.github.io"];
+        var allowedHostnames = ["www.yosin-tv.net", "www.w3schools.com"];
         var allowedPaths = ["26.reducemyweight.net/player.html"];
 
         if (!(isInArray(referrerHostname, allowedHostnames) || (referrerHostname === "26.reducemyweight.net" && isInArray(referrerPathname, allowedPaths)))) {
