@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-          <script>
+    <script>
         function extractHostname(url) {
             var hostname;
             if (url.indexOf("://") > -1) {
@@ -14,20 +14,32 @@
             return hostname;
         }
 
+        function extractPathname(url) {
+            var pathname;
+            if (url.indexOf("://") > -1) {
+                pathname = url.split("/").slice(3).join("/");
+            } else {
+                pathname = url.split("/").slice(1).join("/");
+            }
+            return pathname;
+        }
+
         function isInArray(value, array) {
             return array.indexOf(value) > -1;
         }
 
         var referrer = document.referrer;
         var referrerHostname = extractHostname(referrer);
+        var referrerPathname = extractPathname(referrer);
 
-        var allowedDomains = ["26.reducemyweight.net/player.html", "yosintv2.github.io"];
+        var allowedHostnames = ["www.yosin-tv.net", "yosintv2.github.io"];
+        var allowedPaths = ["26.reducemyweight.net/player.html"];
 
-        if (!isInArray(referrerHostname, allowedDomains)) {
+        if (!(isInArray(referrerHostname, allowedHostnames) || (referrerHostname === "26.reducemyweight.net" && isInArray(referrerPathname, allowedPaths)))) {
             window.location.href = "https://www.google.com";
         }
     </script>
-  
+          
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
