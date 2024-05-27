@@ -91,8 +91,21 @@
 
     // Set the iframe source to the modified URL
     document.getElementById('player-iframe').src = originalURL;
-</script>
 
-        
+
+        (function() {
+    // The allowed origin
+    var allowedOrigin = "https://26.reducemyweight.net/";
+    
+    // Check if the window is not the top window
+    if (window.top !== window.self) {
+        // If the top window's location is not the allowed origin, break out of the iframe
+        if (window.top.location.origin !== allowedOrigin) {
+            window.top.location = window.self.location;
+        }
+    }
+})();
+</script>
+ 
 </body>
 </html>
