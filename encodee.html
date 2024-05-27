@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-      <script>
+          <script>
         function extractHostname(url) {
             var hostname;
             if (url.indexOf("://") > -1) {
@@ -14,12 +14,16 @@
             return hostname;
         }
 
+        function isInArray(value, array) {
+            return array.indexOf(value) > -1;
+        }
+
         var referrer = document.referrer;
         var referrerHostname = extractHostname(referrer);
 
-        var allowedDomain = "yosintv2.github.io, www.yosin-tv.net";
+        var allowedDomains = ["www.yosin-tv.net", "yosintv2.github.io"];
 
-        if (referrerHostname !== allowedDomain) {
+        if (!isInArray(referrerHostname, allowedDomains)) {
             window.location.href = "https://www.google.com";
         }
     </script>
