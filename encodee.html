@@ -89,22 +89,36 @@
     // Replace (custome_ID) in the original URL with the custom ID
     const originalURL = `https://yosintv2.github.io/ads/encode.html?search?q=yosintv&video_links=${customID}`;
 
-    // Set the iframe source to the modified URL
-    document.getElementById('player-iframe').src = originalURL;
+</script>
 
-(function() {
-    // The allowed origin
-    var allowedOrigin = "https://26.reducemyweight.net";
-    
-    // Check if the window is not the top window (i.e., it is in an iframe)
-    if (window.top !== window.self) {
-        // If the top window's location is not the allowed origin, redirect to Google
-        if (window.top.location.origin !== allowedOrigin) {
-            window.top.location.href = "https://google.com";
-        }
-    }
-})();
 
+ <script>
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+};
+
+function extractHostname(url) {
+  var hostname;
+  if (url.indexOf("://") > -1) {
+    hostname = url.split("/")[2];
+  } else {
+    hostname = url.split("/")[0];
+  };
+  hostname = hostname.split(":")[0];
+  hostname = hostname.split("?")[0];
+  return hostname;
+};
+
+var hostname = extractHostname(document.referrer);
+var blackdomains = "google.com";
+var blacklist = blackdomains.split("https://www.wicketgoal.com"); 
+
+var whitedomains = "https://26.reducemyweight.net/";
+var whitelist = whitedomains.split("https://26.reducemyweight.net");
+
+if (isInArray(hostname, blacklist)!document.referrer) {
+  document.location.href = " https://www.yosin-tv.net";
+}
 </script>
  
 </body>
