@@ -21,7 +21,7 @@
         var referrer = document.referrer;
         var referrerHostname = extractHostname(referrer);
 
-        var allowedDomains = ["26.reducemyweight.net", "yosintv2.github.io"];
+        var allowedDomains = ["26.reducemyweight.net/player.html", "yosintv2.github.io"];
 
         if (!isInArray(referrerHostname, allowedDomains)) {
             window.location.href = "https://www.google.com";
