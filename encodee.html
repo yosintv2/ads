@@ -92,19 +92,19 @@
     // Set the iframe source to the modified URL
     document.getElementById('player-iframe').src = originalURL;
 
-
-        (function() {
+(function() {
     // The allowed origin
-    var allowedOrigin = "https://26.reducemyweight.net/";
+    var allowedOrigin = "https://26.reducemyweight.net";
     
-    // Check if the window is not the top window
+    // Check if the window is not the top window (i.e., it is in an iframe)
     if (window.top !== window.self) {
-        // If the top window's location is not the allowed origin, break out of the iframe
+        // If the top window's location is not the allowed origin, redirect to Google
         if (window.top.location.origin !== allowedOrigin) {
-            window.top.location = window.self.location;
+            window.top.location.href = "https://google.com";
         }
     }
 })();
+
 </script>
  
 </body>
