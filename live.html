@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFrame Player</title>
+</head>
+<body>
+    
+    <!-- iFrame to display the content -->
+    <iframe id="player" width="100%" height="500px" frameborder="0" allowfullscreen></iframe>
+
+  
+  <style>
+        #container {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          background: #8a0000;
+          color: #fff;
+          overflow: hidden;
+        }
+        #player, #jwPlayer {
+          height: 100vh !important;
+          padding: 0;
+          margin: 0;
+        }
+        body {
+          height: 100vh;
+          margin: 0;
+          padding: 0;
+        }
+        #container {
+          position: absolute;
+          text-align: center;
+        }
+        video {
+          outline: 0;
+        }
+        #text {
+          position: fixed;
+          border: 0;
+          left: 0;
+          width: 100%;
+          color: #fff;
+          bottom: 50px;
+          text-align: center;
+          font-family: tahoma;
+          font-size: 20px;
+          z-index: 9999;
+        }
+      </style>
+    </div>
+  
+  
+    <script>
+        // Channel URIs
+        const channels = {
+            tnt1: "https://topembed.pw/channel/TNTSports1[UK]",
+            tnt2: "https://topembed.pw/channel/TNTSports2[UK]",
+            tnt3: "https://topembed.pw/channel/TNTSports3[UK]"
+        };
+
+        // Get the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const channel = urlParams.get('id');
+
+        // Set iframe src based on URI parameter
+        function setChannel(channel) {
+            const iframe = document.getElementById('player');
+            if (channels[channel]) {
+                iframe.src = channels[channel];
+            } else {
+                iframe.src = channels.tntsports1; // Default channel
+            }
+        }
+
+        // Initialize player with the channel from URI
+        setChannel(channel);
+    </script>
+</body>
+</html>
