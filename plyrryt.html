@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plyr.io YouTube Player with URL Parameter</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+</head>
+<body>
+
+<div class="plyr__video-embed" id="player">
+    <iframe allowfullscreen allow="autoplay"></iframe>
+</div>
+
+<script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+<script>
+    // Function to get URL parameters
+    function getURLParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Get the YouTube video ID from the URL parameter "video"
+    const videoId = getURLParameter('video');
+
+    // If a video ID is provided, set the iframe source
+    if (videoId) {
+        const iframe = document.querySelector('#player iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?origin=*&enablejsapi=1`;
+        
+        // Initialize the Plyr player
+        const player = new Plyr('#player', {
+            controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+            youtube: { noCookie: true },
+        });
+    } else {
+        // Optionally, handle the case where no video ID is provided
+        alert('No video ID provided in the URL. Please use ?video=YOUR_VIDEO_ID');
+    }
+</script>
+
+</body>
+</html>
