@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Redirecting...</title>
+</head>
+<body>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const customId = urlParams.get('url');
+    const newurl = `https://s4.hls-player.net/ftt?src=${customId}`;
+    window.location.replace(newurl);
+</script>
+</body>
+</html>
+
+<!-- flive.html for football live-->
